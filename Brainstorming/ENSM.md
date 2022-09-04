@@ -10,3 +10,6 @@ This project will also allow my partner and I to further develop the connection 
 - Python Django web interface
 - Integrated AI analysis
 - Well Designed GUI
+
+### Constraints
+Python is standard for most AI and data science projects due to the modules dedicated to those two topics specifically so we will be using Python for this project.
