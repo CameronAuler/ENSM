@@ -12,4 +12,4 @@ This project will also allow my partner and I to further develop the connection 
 - Well Designed GUI
 
 ### Constraints
-Python is standard for most AI and data science projects due to the modules dedicated to those two topics specifically so we will be using Python for this project.
+Python is standard for most AI and data science projects due to the modules dedicated to those two topics specifically so we will be using Python for this project. There are also going to be a lot of design-based milestones for this project so we will need to put a heavy focus on that aspect of product design.
