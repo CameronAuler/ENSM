@@ -1,1 +1,0 @@
-UI, AI, SIEM
