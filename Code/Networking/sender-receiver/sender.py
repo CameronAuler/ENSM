@@ -2,7 +2,7 @@ import os
 import socket
 import time
 
-ADDRESS = "127.0.0.1"
+ADDRESS = "10.0.0.78"
 PORT = 8888
 
 # Creating the socket object
