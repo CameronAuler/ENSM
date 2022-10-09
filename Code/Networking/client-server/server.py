@@ -4,7 +4,7 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Connection information
 PORT = 8000
-ADDRESS = "184.171.150.45"
+ADDRESS = "127.0.0.1"
 
 # The following line of code retrieves the IP of the system it is on automatically, but doesn't work with VM initialization
 '''

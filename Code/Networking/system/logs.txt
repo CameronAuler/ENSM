@@ -1,0 +1,130 @@
+
+
+EventID            : 5382
+MachineName        : ZEUS
+Data               : {}
+Index              : 105974
+Category           : (13824)
+CategoryNumber     : 13824
+EntryType          : SuccessAudit
+Message            : Vault credentials were read.
+                     
+                     Subject:
+                     	Security ID:		S-1-5-21-1980722544-1329097916-2478598046-1001
+                     	Account Name:		camer
+                     	Account Domain:		ZEUS
+                     	Logon ID:		0x3f0c66a4
+                     
+                     This event occurs when a user reads a stored vault credential.
+Source             : Microsoft-Windows-Security-Auditing
+ReplacementStrings : {S-1-5-21-1980722544-1329097916-2478598046-1001, camer, ZEUS, 0x3f0c66a4...}
+InstanceId         : 5382
+TimeGenerated      : 10/8/2022 11:47:06 PM
+TimeWritten        : 10/8/2022 11:47:06 PM
+UserName           : 
+Site               : 
+Container          : 
+
+EventID            : 5380
+MachineName        : ZEUS
+Data               : {}
+Index              : 105973
+Category           : (13824)
+CategoryNumber     : 13824
+EntryType          : SuccessAudit
+Message            : Vault Find Credential.
+                     
+                     Subject:
+                     	Security ID:		S-1-5-21-1980722544-1329097916-2478598046-1001
+                     	Account Name:		camer
+                     	Account Domain:		ZEUS
+                     	Logon ID:		0x3f0c66a4
+                     
+                     This event occurs when a user finds stored vault credentials.
+Source             : Microsoft-Windows-Security-Auditing
+ReplacementStrings : {S-1-5-21-1980722544-1329097916-2478598046-1001, camer, ZEUS, 0x3f0c66a4...}
+InstanceId         : 5380
+TimeGenerated      : 10/8/2022 11:47:06 PM
+TimeWritten        : 10/8/2022 11:47:06 PM
+UserName           : 
+Site               : 
+Container          : 
+
+EventID            : 5382
+MachineName        : ZEUS
+Data               : {}
+Index              : 105972
+Category           : (13824)
+CategoryNumber     : 13824
+EntryType          : SuccessAudit
+Message            : Vault credentials were read.
+                     
+                     Subject:
+                     	Security ID:		S-1-5-21-1980722544-1329097916-2478598046-1001
+                     	Account Name:		camer
+                     	Account Domain:		ZEUS
+                     	Logon ID:		0x3f0c66a4
+                     
+                     This event occurs when a user reads a stored vault credential.
+Source             : Microsoft-Windows-Security-Auditing
+ReplacementStrings : {S-1-5-21-1980722544-1329097916-2478598046-1001, camer, ZEUS, 0x3f0c66a4...}
+InstanceId         : 5382
+TimeGenerated      : 10/8/2022 10:49:11 PM
+TimeWritten        : 10/8/2022 10:49:11 PM
+UserName           : 
+Site               : 
+Container          : 
+
+EventID            : 5380
+MachineName        : ZEUS
+Data               : {}
+Index              : 105971
+Category           : (13824)
+CategoryNumber     : 13824
+EntryType          : SuccessAudit
+Message            : Vault Find Credential.
+                     
+                     Subject:
+                     	Security ID:		S-1-5-21-1980722544-1329097916-2478598046-1001
+                     	Account Name:		camer
+                     	Account Domain:		ZEUS
+                     	Logon ID:		0x3f0c66a4
+                     
+                     This event occurs when a user finds stored vault credentials.
+Source             : Microsoft-Windows-Security-Auditing
+ReplacementStrings : {S-1-5-21-1980722544-1329097916-2478598046-1001, camer, ZEUS, 0x3f0c66a4...}
+InstanceId         : 5380
+TimeGenerated      : 10/8/2022 10:49:11 PM
+TimeWritten        : 10/8/2022 10:49:11 PM
+UserName           : 
+Site               : 
+Container          : 
+
+EventID            : 5379
+MachineName        : ZEUS
+Data               : {}
+Index              : 105970
+Category           : (13824)
+CategoryNumber     : 13824
+EntryType          : SuccessAudit
+Message            : Credential Manager credentials were read.
+                     
+                     Subject:
+                     	Security ID:		S-1-5-21-1980722544-1329097916-2478598046-1001
+                     	Account Name:		camer
+                     	Account Domain:		ZEUS
+                     	Logon ID:		0x3f0c66a4
+                     	Read Operation:		%%8100
+                     
+                     This event occurs when a user performs a read operation on stored credentials in Credential Manager.
+Source             : Microsoft-Windows-Security-Auditing
+ReplacementStrings : {S-1-5-21-1980722544-1329097916-2478598046-1001, camer, ZEUS, 0x3f0c66a4...}
+InstanceId         : 5379
+TimeGenerated      : 10/8/2022 10:09:30 PM
+TimeWritten        : 10/8/2022 10:09:30 PM
+UserName           : 
+Site               : 
+Container          : 
+
+
+

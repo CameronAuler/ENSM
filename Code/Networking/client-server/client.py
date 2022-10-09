@@ -1,7 +1,7 @@
 import socket
 
 server_port = 8000
-server_address = "10.0.0.215"
+server_address = "127.0.0.1"
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
