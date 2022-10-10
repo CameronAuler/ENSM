@@ -7,7 +7,7 @@ from rich import inspect
 
 # Commands
 # Get full log
-form = "Get-EventLog -LogName Security -Newest 1 | Format-List -Property * | out-host"
+form = "Get-EventLog -LogName Security -Newest 10000 | Format-List -Property * | out-host"
 
 # Get specific element of a log
 filter = "Get-EventLog -LogName Security -Newest 1 | Format-List -Property EventID | out-host"
