@@ -7,10 +7,7 @@ from rich import inspect
 
 # Commands
 # Get full log
-num = 2
 form = "Get-EventLog -LogName Security -Newest 1 | Format-List -Property * | out-host"
-test = "Get-EventLog -LogName Security -Newest 1 | Format-List -Property | out-host"
-form2 = "Get-EventLog -LogName Security -Newest 1 | Format-List"
 
 # Get specific element of a log
 filter = "Get-EventLog -LogName Security -Newest 1 | Format-List -Property EventID | out-host"
@@ -40,20 +37,42 @@ result = stdout.decode().split()
 # Print the Arguments passed to output
 # print(dir(output), sep="\n")
 
-log = []
+
+def get_properties(split_log):
+    properties = []
+    for item in split_log:
+        if split_log[split_log.index(item) + 1] == ":" and item not in properties:
+            properties.append(item)
+        else:
+            pass
+    return properties
+
+def get_line(split_log, properties):
+    
+    property_entry = ""
+    message = []
+    for item in split_log:
+        if item in properties:
+            if split_log.index(item) > 0:
+                property_entry += "," + item + ":"
+            else:
+                property_entry += item + ":"
+        elif item == "Message":
+            property_entry += "," + item
+        elif item not in properties and item != ":":
+            property_entry += item
+        else:
+            pass
+        split_log.remove(item)
+    return property_entry
+
 
 def build():
+    log = {}
     property_entry = ""
     is_data = False
-    for item in result:
-        if item == ":" and item != result[0]:
-            property_entry += result[result.index(item) - 1]
-            is_data = True
-            print(property_entry)
-        elif  not is_data:
-            property_entry = ""
-        else:
-            property_entry += item
+    print(get_properties(result))
+    print(get_line(result, get_properties(result)))
 
 build()
 # Write to file
