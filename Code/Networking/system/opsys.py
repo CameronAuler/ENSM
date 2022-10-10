@@ -39,42 +39,29 @@ result = stdout.decode().split()
 
 
 def get_properties(split_log):
-    properties = []
+    prpoerty_places = []
     for item in split_log:
-        if split_log[split_log.index(item) + 1] == ":" and item not in properties:
-            properties.append(item)
+        if split_log[split_log.index(item) + 1] == ":":
+            prpoerty_places.append(split_log.index(item))
         else:
             pass
-    return properties
+    return prpoerty_places
 
-def get_line(split_log, properties):
-    
-    property_entry = ""
-    message = []
-    for item in split_log:
-        if item in properties:
-            if split_log.index(item) > 0:
-                property_entry += "," + item + ":"
-            else:
-                property_entry += item + ":"
-        elif item == "Message":
-            property_entry += "," + item
-        elif item not in properties and item != ":":
-            property_entry += item
+def log_list(split_log, places):
+    log = []
+    for item in places:            
+        if places.index(item) > 0 and places.index(item) != len(places) - 1:
+            log.append(split_log[places[places.index(item) - 1]:item])
+            
+        elif places.index(item) == len(places) - 1:
+            log.append(split_log[places[places.index(item) - 1]:item])
+            log.append(split_log[item:len(split_log)])
         else:
             pass
-        split_log.remove(item)
-    return property_entry
+    return log
 
+print(log_list(result, get_properties(result)))
 
-def build():
-    log = {}
-    property_entry = ""
-    is_data = False
-    print(get_properties(result))
-    print(get_line(result, get_properties(result)))
-
-build()
 # Write to file
 #with open("logs.txt", "w") as file:
 #    file.write(f"{item},")

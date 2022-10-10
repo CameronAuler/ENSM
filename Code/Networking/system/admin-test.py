@@ -35,7 +35,7 @@ p = subprocess.Popen(
       "
     """
   ],
-  stdout=sys.stdout
+  #stdout=sys.stdout
 )
 p.communicate()
 
