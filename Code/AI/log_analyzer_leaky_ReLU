@@ -1,0 +1,50 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+class LogAnalyzer(nn.Module):
+    def __init__(self, input_size, hidden_size, num_classes):
+        super(LogAnalyzer, self).__init__()
+        self.fc1 = nn.Linear(input_size, hidden_size)
+        self.leaky_relu = nn.LeakyReLU(negative_slope=0.01)
+        self.fc2 = nn.Linear(hidden_size, num_classes)
+
+    def forward(self, x):
+        out = self.fc1(x)
+        out = self.leaky_relu(out)
+        out = self.fc2(out)
+        return out
+
+model = LogAnalyzer(input_size=..., hidden_size=..., num_classes=...)
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
+
+for epoch in range(num_epochs):
+    running_loss = 0.0
+    for i, data in enumerate(trainloader, 0):
+        inputs, labels = data
+        optimizer.zero_grad()
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+        running_loss += loss.item()
+    print('Epoch: %d Loss: %.3f' % (epoch + 1, running_loss / len(trainloader)))
+
+print('Finished Training')
+
+'''
+In this example, we first define the LogAnalyzer class which is a simple feedforward neural 
+network with one hidden layer. The activation function used in the hidden layer is a leaky 
+ReLU, which is implemented using the nn.LeakyReLU module from PyTorch's torch.nn package. 
+The negative_slope argument controls the slope of the function for negative inputs.
+
+We then create an instance of the LogAnalyzer class, setting the input size, hidden size, 
+and number of classes as required. We also specify the loss function (nn.CrossEntropyLoss) 
+and the optimizer (Stochastic Gradient Descent with momentum).
+
+In the training loop, we iterate over the training data, zero the gradients, forward pass 
+the inputs through the model, calculate the loss, perform backpropagation to compute gradients, 
+and update the model parameters using the optimizer. The loss is accumulated over each epoch, 
+and the average loss is printed at the end of each epoch.
+'''
