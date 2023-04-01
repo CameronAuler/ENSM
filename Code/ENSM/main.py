@@ -38,11 +38,19 @@ def read_raw():
     for key, value in memory.data.items():
         print(f'{key}: {value}')
     
-
-def count_ip():
-    print('identify_ip')
+'''
+def count_ip(log):
+    for key, value in log:
+        if value[1] in memory.ip_count:
+            memory.ip_count[1]
+        if value[2] in memory.ip_count:
+            memory.ip_count[1]
+        else:
+            memory.ip_count
+'''
 
 def check_ip():
     print('check_ip')
 
 read_raw()
+count_ip(memory.data)
