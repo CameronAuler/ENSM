@@ -10,17 +10,21 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_score, recall_score
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import  f1_score
+from sklearn.impute import SimpleImputer
 plot.style.use('ggplot')
 pd.set_option("display.max_columns", 200)
 import memory
 import config
 
-#ts,uid,id.orig_h,id.orig_p,id.resp_h,id.resp_p,mac,assigned_ip,lease_time,trans_id
-
 '''
 This will be the main script for the ENSM log analysis engine.
 '''
-
+############################################################################################################################################################################################################################################################
 def identify_log():
     print('log Identified')
     print(r'''
@@ -29,8 +33,9 @@ def identify_log():
           DHCP: trans_id
           
           ''')
-
-def read_raw():
+############################################################################################################################################################################################################################################################
+############################################################################################################################################################################################################################################################
+def read_raw_DHCP():
     with open(config.dhcp_path) as dataset:
         # For each line in the dataset
         for data_line in dataset:
@@ -80,21 +85,48 @@ def read_raw():
     
     #print findings from the model
     print(readydata3[['anomaly_scores', 'anomaly']])
+############################################################################################################################################################################################################################################################
+############################################################################################################################################################################################################################################################
+def DDos_detection():
+     
+    labels = ['Destination Port', 'Flow Duration', 'Total Fwd Packets', 'Total Backward Packets', 'Flow Bytes/s', 'Flow Packets/s','FIN Flag Count', 'SYN Flag Count', 'RST Flag Count', 'PSH Flag Count' , 'ACK Flag Count','URG Flag Count']
 
+    # Load the dataset
+    data1 = pd.read_csv('DDOS.csv')
+
+    numeric_cols = data1.select_dtypes(include=np.number).columns
+    data1[numeric_cols] = data1[numeric_cols][np.isfinite(data1[numeric_cols])]
+
+    #print(data1)
+
+    #extracted features dataframe
+    X = data1[labels]
+
+    #label dataframe
+    Y= data1['Label']
     
-'''
-def count_ip(log):
-    for key, value in log:
-        if value[1] in memory.ip_count:
-            memory.ip_count[1]
-        if value[2] in memory.ip_count:
-            memory.ip_count[1]
-        else:
-            memory.ip_count
-'''
+    print( X)
+  
+    X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
+    
+    imputer = SimpleImputer(strategy='mean')
+    X_train = imputer.fit_transform(X_train)
+    X_test = imputer.fit_transform(X_test)
 
-def check_ip():
-    print('check_ip')
+    rfc = RandomForestClassifier(n_estimators=100, random_state=42)
 
-read_raw()
-#count_ip(memory.data)
+    rfc.fit(X_train, y_train)
+
+    y_pred = rfc.predict(X_test)
+
+    print("Accuracy:", accuracy_score(y_test, y_pred))
+    print("Precision:", precision_score(y_test, y_pred, average='weighted'))
+    print("Recall:", recall_score(y_test, y_pred, average='weighted'))
+    print("F1 Score:", f1_score(y_test, y_pred, average='weighted'))
+############################################################################################################################################################################################################################################################        
+ 
+read_raw_DHCP()
+DDos_detection()
+
+
+
